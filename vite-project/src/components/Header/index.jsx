@@ -1,6 +1,7 @@
 import React from "react";
 import './style.css'
 import logo from '../../assets/img/logo.png'
+import { FaSearch } from "react-icons/fa";
 export default function Header(){
     return (
         <div>
@@ -64,7 +65,7 @@ export default function Header(){
                 </div>
                 <div className="search">
                     <input type="text" className="sreach_box"/>
-                    
+                    <FaSearch />
                 </div>
                 </div>
             </div>

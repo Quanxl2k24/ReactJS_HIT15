@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box_product{
+    width: 500px;
+    border: 1px solid black;
+    padding: 20px 12px;
+    border-radius: 12px;
+}
+.list-product{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.list-product p{
+    font-size: 20px;
+}
+
+.list-product button{
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+.list-cart{
+    display: flex;
+    align-items: center;
+    gap:20px
+}
+
+.button-addandremove button{
+    width: 40px;
+    padding: 10px 0px;
+    margin-right: 8px;
+}
