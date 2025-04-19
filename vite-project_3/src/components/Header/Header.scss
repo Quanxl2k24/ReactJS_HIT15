@@ -1,0 +1,196 @@
+@use "../../styles/index" as style;
+.Header_container {
+  top: 0;
+  background-color: white;
+  width: 100vw;
+}
+
+.Header {
+  @include style.flex(center, space-between);
+  position: fixed;
+  z-index: 90;
+  background-color: white;
+  width: 100%;
+  padding: 15px 180px;
+
+  &_logo h1 {
+    color: style.$primary-color;
+    font-size: 30px;
+  }
+
+  &_menu {
+    @include style.flex(center, space-around);
+
+    &--list-mainmenu {
+      @include style.flex(center, space-around);
+      list-style: none;
+      //cha
+      &--cha {
+        position: relative;
+        &:hover {
+          .Header_menu--list-submenu {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+
+      li {
+        &:hover {
+          .item-mainmenu {
+            color: style.$second-color;
+          }
+        }
+        padding: 18px 15px;
+        a {
+          font-weight: 500;
+        }
+      }
+    }
+
+    &--list-mainmenu a {
+      text-decoration: none;
+      color: style.$primary-color;
+      transition: color 0.25s ease-in-out;
+    }
+
+    &--list-submenu {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border-radius: 8px;
+      width: max-content;
+      list-style: none;
+      //con
+      &--con {
+        background-color: white;
+        position: absolute;
+        left: 100;
+        top: 100%;
+        z-index: 100;
+
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        pointer-events: none;
+      }
+
+      li {
+        padding: 14x 10px;
+        &:hover {
+          pointer-events: auto;
+
+          .item-submenu {
+            color: style.$second-color;
+          }
+        }
+        a {
+          font-weight: 500;
+        }
+      }
+    }
+
+    &--button {
+      a {
+        button {
+          background-color: style.$second-color;
+          border: none;
+          padding: 10px 18px;
+          border-radius: 40px;
+          color: white;
+          margin-left: 24px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  padding: 0px 180px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 100px;
+
+  &_left {
+    &--text {
+      h1 {
+        color: style.$primary-color;
+        font-size: 48px;
+        margin-bottom: 6px;
+      }
+
+      p {
+        color: style.$primary-color;
+        padding-bottom: 30px;
+      }
+    }
+
+    &--button {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      .button-getstart {
+        button {
+          padding: 10px 28px 12px 28px;
+          background-color: style.$second-color;
+          border: none;
+          border-radius: 30px;
+          font-size: 14px;
+          color: white;
+        }
+      }
+
+      .button-play {
+        @include style.flex(center, center);
+        gap: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        color: black;
+        transition: color 0.25s ease-in-out;
+
+        &_but-video {
+          width: 32px;
+          height: 32px;
+          border: 3px solid style.$second-color;
+          border-radius: 100px;
+          position: relative;
+
+          .icon-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: style.$second-color;
+          }
+        }
+
+        &:hover {
+          color: style.$second-color;
+        }
+      }
+    }
+  }
+
+  &_right {
+    position: relative;
+    width: 636px;
+    height: 530px;
+    &--moving-image {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      animation: moveUpDown 2.5s ease-in-out infinite;
+      @keyframes moveUpDown {
+        0% {
+          top: 0;
+        }
+        50% {
+          top: 10px;
+        }
+        100% {
+          top: 0;
+        }
+      }
+    }
+  }
+}

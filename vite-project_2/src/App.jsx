@@ -3,6 +3,7 @@ import Body from "./components/Body";
 import Bai_1 from "./components/Bai_1";
 import postdata from "./data/post.json";
 import ToggleButton from "./components/Toggle";
+import Card from "./components/Card";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,11 +34,12 @@ function App() {
 
   return (
     <>
-      <Body products={productData} lists={listCart} />
+      {/* <Body products={productData} lists={listCart} />
       <Bai_1 data={postdata} />
       <button onClick={handleButton}>
         <ToggleButton active = {active} />
-      </button>
+      </button> */}
+      <Card/>
     </>
   );
 }

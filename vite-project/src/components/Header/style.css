@@ -101,12 +101,3 @@
     align-items: center;
     gap: 100px;
 }
-
-.search{
-    display: flex;
-    align-items: center;
-}
-
-.search FaSearch{
-    color: white;
-}

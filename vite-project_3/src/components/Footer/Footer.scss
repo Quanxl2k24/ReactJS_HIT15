@@ -1,0 +1,65 @@
+@use "../../styles/index" as style;
+.footer-conatiner {
+  width: 100vw;
+}
+
+.footer {
+  background-color: #f9f9f9;
+  margin-top: 200px;
+
+  &_top {
+    // width: 90vw;
+    padding: 50px 0px;
+    &--text {
+      text-align: center;
+      h2 {
+        color: style.$primary-color;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 14px;
+        color: black;
+        font-weight: 500;
+        margin-bottom: 30px;
+      }
+    }
+
+    &--box-search {
+      width: max-content;
+      @include style.flex(center, center);
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 40px;
+      height: 38px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      padding-left: 12px;
+      input {
+        width: 532px;
+        border: none;
+
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+
+      .button-search {
+        height: 100%;
+        button {
+          padding: 0 16px;
+          height: 100%;
+          background-color: style.$second-color;
+          color: white;
+          border: none;
+          border-radius: 40px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  &_bottom {
+    margin-top: 60px;
+  }
+}

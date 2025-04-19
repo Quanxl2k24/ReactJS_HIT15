@@ -1,0 +1,68 @@
+@use '../../styles/index.scss' as style;
+.container{
+    position: relative;
+}
+.profile-card{
+    position: absolute;
+    background-color: rgb(189, 193, 250);
+    width: 350px;
+    padding: 50px 0;
+    border-radius: 12px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;    
+
+    &__img{
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        background-color: white;
+        margin: 0 auto;
+        margin-bottom:10px ;
+    }
+    &__title{
+        color: style.$primary-color
+    }
+    &__content{
+        @include style.flex(center,center);
+        gap: 2px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    &__button{
+        text-align: center;
+        @include style.flex(center,center);
+    }
+
+    &__button-item{
+        padding: 10px 14px;
+        border: none;
+        border-radius: 4px;
+        margin-right: 10px;
+        &--follow{
+            background-color: rgb(151, 185, 100);
+            color: white;
+            transition: background-color 0.35s ease-in-out;
+            font-size: 16px;
+            &:hover{
+                background-color: white;
+                color: rgb(151, 185, 100);
+            }
+        }
+        &--message{
+            background-color: rgb(37, 30, 139);
+            color: white;
+            transition: background-color 0.35s ease-in-out;
+            font-size: 16px;
+            &:hover{
+                background-color: white;
+                color:  rgb(37, 30, 139);
+            }
+        }
+    }
+
+}
