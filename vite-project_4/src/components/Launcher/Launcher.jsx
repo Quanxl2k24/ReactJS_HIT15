@@ -17,7 +17,7 @@ export default function Launcher() {
   //   console.log("🚀 ~ Launcher ~ object:", object);
 
   const unix = object.dt;
-  const timezone = object.timezone; // ví dụ: 25200
+  const timezone = object.timezone; 
 
   const localTime = new Date((unix + timezone) * 1000);
   const formatted = localTime.toLocaleString("en-US", {
@@ -26,8 +26,7 @@ export default function Launcher() {
     month: "long",
     day: "numeric",
   });
-  console.log(formatted); // Ví dụ: "Saturday, April 19, 2025"
-
+  console.log(formatted); 
   const handleChangeUnits = () => {
     if (units === "metric") {
       setUnits("imperial");
