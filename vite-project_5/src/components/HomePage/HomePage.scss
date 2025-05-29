@@ -1,0 +1,79 @@
+@use "../../styles/index" as style;
+
+.homePage {
+  padding: 48px 200px;
+
+  &_header {
+    @include style.flex(space-between, center);
+
+    &--buttonSign {
+      button {
+        width: 208px;
+        height: 60px;
+        border: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 16px;
+        background-color: style.$primary-color;
+        color: white;
+        margin-left: 50px;
+      }
+    }
+  }
+
+  &_body1 {
+    margin-top: 130px;
+    @include style.flex(space-between, center);
+    position: relative;
+    &--text {
+      h1 {
+        color: #212353;
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 110px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+      }
+
+      .textP {
+        width: 378px;
+        height: 120px;
+        margin-top: 50px;
+        p {
+          font-weight: 500px;
+          font-size: 18px;
+          line-height: 160%;
+          letter-spacing: 0%;
+          color: #4b5d68;
+        }
+      }
+
+      .ButtonLearnMore {
+        button {
+          width: 168px;
+          height: 60px;
+          border-radius: 50px;
+          background-color: style.$primary-color;
+          color: white;
+          font-weight: 800;
+          font-size: 18px;
+          line-height: 160%;
+          border: none;
+          margin-top: 50px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    &--img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-bottom: -10px;
+      img {
+        width: 760px;
+        height: 400px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@use "../../styles/index" as style;
+
+.login {
+  position: relative;
+  &_header {
+    &--logo {
+      // .icon_logo_1 {
+      //   position: absolute;
+      //   top: 75px;
+      //   left: 400px;
+      //   background-color: style.$primary-color;
+      //   width: 20px;
+      //   height: 20px;
+      //   border-radius: 20px;
+      // }
+
+      // .icon_logo_2 {
+      //   position: absolute;
+      //   top: 60px;
+      //   left: 429px;
+      //   background-color: #f063b8;
+      //   width: 20px;
+      //   height: 35px;
+      //   border-radius: 20px;
+      // }
+    }
+  }
+
+  &_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    height: max-content;
+    &--title {
+      p {
+        font-size: 64px;
+        padding-bottom: 20px;
+      }
+    }
+    label {
+      padding-bottom: 10px;
+    }
+    .inputLogin {
+      width: 407px;
+      height: 57px;
+      border: 1px solid black;
+      border-radius: 6px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      padding-left: 12px;
+      font-size: 16px;
+      :focus {
+        outline: none;
+      }
+    }
+
+    button {
+      width: 407px;
+      height: 57px;
+      color: white;
+      background-color: style.$primary-color;
+      border-radius: 50px;
+      border: none;
+    }
+  }
+}
