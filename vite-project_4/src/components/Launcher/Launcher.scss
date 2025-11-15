@@ -116,6 +116,12 @@
     &--item-info {
       color: #666;
       font-size: 20px;
+      text-align: center;
+
+      .info-icon {
+        margin: 0 auto;
+        font-size: 40px;
+      }
       .info {
         font-weight: 600;
         font-size: 18px;

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useFormik, validateYupSchema } from "formik";
+import { Formik, useFormik, validateYupSchema } from "formik";
 import { Logo } from "../../assets/imgs/12.png";
 import * as Yup from "yup";
 import "./Login.scss";
@@ -33,7 +33,6 @@ const Login = () => {
           <div className="login_box--title">
             <p>Sign In</p>
           </div>
-
           <section>
             <form onSubmit={formik.handleSubmit}>
               <label>Username</label>

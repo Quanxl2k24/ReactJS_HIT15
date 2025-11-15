@@ -2,6 +2,12 @@ import "./Launcher.scss";
 import { useState, useEffect, use } from "react";
 import axios from "axios";
 
+import { FaWind } from "react-icons/fa";
+import { WiHumidity } from "react-icons/wi";
+import { FiSunrise } from "react-icons/fi";
+import { FiSunset } from "react-icons/fi";
+import { WiBarometer } from "react-icons/wi";
+
 export default function Launcher() {
   const [namecity, setNamecity] = useState("");
   //kiemtra namecity
@@ -17,7 +23,7 @@ export default function Launcher() {
   //   console.log("🚀 ~ Launcher ~ object:", object);
 
   const unix = object.dt;
-  const timezone = object.timezone; 
+  const timezone = object.timezone;
 
   const localTime = new Date((unix + timezone) * 1000);
   const formatted = localTime.toLocaleString("en-US", {
@@ -26,17 +32,34 @@ export default function Launcher() {
     month: "long",
     day: "numeric",
   });
-  console.log(formatted); 
+  console.log(formatted);
   const handleChangeUnits = () => {
     if (units === "metric") {
       setUnits("imperial");
       setUnitslauncher("°F");
-    }
-    if (units == "imperial") {
+    } else {
       setUnits("metric");
       setUnitslauncher("°C");
     }
   };
+
+  const convertToVietnamTime = (unixTime) => {
+    if (!unixTime) return "";
+
+    const date = new Date(unixTime * 1000);
+
+    return date.toLocaleTimeString("vi-VN", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone: "Asia/Ho_Chi_Minh",
+    });
+  };
+
+  useEffect(() => {
+    if (!namecity) return;
+    callApi();
+  }, [units]);
 
   const callApi = async () => {
     try {
@@ -75,6 +98,11 @@ export default function Launcher() {
             onChange={(e) => {
               setNamecity(e.target.value);
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleClickSearch();
+              }
+            }}
           />
           <button
             className="launcher_form--buttonsearch"
@@ -83,17 +111,18 @@ export default function Launcher() {
             Search
           </button>
         </div>
-
-        <div className="launcher_form-changetemp">
-          <button
-            className="launcher_form-changetemp--but-change"
-            onClick={() => {
-              handleChangeUnits();
-            }}
-          >
-            {unitslauncher}
-          </button>
-        </div>
+        {display && (
+          <div className="launcher_form-changetemp">
+            <button
+              className="launcher_form-changetemp--but-change"
+              onClick={() => {
+                handleChangeUnits();
+              }}
+            >
+              {unitslauncher}
+            </button>
+          </div>
+        )}
       </div>
 
       {display && (
@@ -130,28 +159,35 @@ export default function Launcher() {
 
           <div className="citytemperature_content-bottom">
             <div className="citytemperature_content-bottom--item-info">
+              <FaWind className="info-icon" />
               <p>Wind</p>
               <p className="info">{object.wind?.speed}</p>
             </div>
 
             <div className="citytemperature_content-bottom--item-info">
+              <WiHumidity className="info-icon" />
               <p>Humidity</p>
               <p className="info">{object.main?.humidity}</p>
             </div>
 
             <div className="citytemperature_content-bottom--item-info">
+              <WiBarometer className="info-icon" />
               <p>Pressure</p>
               <p className="info">{object.main?.pressure}</p>
             </div>
 
             <div className="citytemperature_content-bottom--item-info">
+              <FiSunrise className="info-icon" />
               <p>Sunrise</p>
-              <p className="info">{object.sys?.sunrise}</p>
+              <p className="info">
+                {convertToVietnamTime(object.sys?.sunrise)}
+              </p>
             </div>
 
             <div className="citytemperature_content-bottom--item-info">
+              <FiSunset className="info-icon" />
               <p>Sunset</p>
-              <p className="info">{object.sys?.sunset}</p>
+              <p className="info">{convertToVietnamTime(object.sys?.sunset)}</p>
             </div>
           </div>
         </div>
